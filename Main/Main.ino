@@ -57,6 +57,13 @@ unsigned int lastUpButtonValue = LOW;
 unsigned int lastDownButtonValue = LOW;
 
 
+// ---------------- Game Parameters ------------------
+
+pointOnMatrix playerIntialPosition = {2,2};
+
+// ---------------- Game Variables -------------------
+
+pointOnMatrix playerPosition = playerIntialPosition;
 
 
 void setup() {
@@ -82,6 +89,9 @@ if(lastMillis - millis() > 500) {
 
   lastMillis = millis();
 }
+
+    setPlayerPositionInMatrix();
+    digitalOutputDisplay();
 
     // ----------------------------------------------------------
     // Checking if a button has been pushed, reacting accordingly
@@ -113,6 +123,10 @@ if(lastMillis - millis() > 500) {
 
   outputDisplay();
   delay(1);
+}
+
+void setPlayerPositionInMatrix() {
+  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
 }
 
 // Makes the whole "LEDMatrix" equals to 0, i.e. each LED is off
