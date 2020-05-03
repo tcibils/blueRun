@@ -5,6 +5,8 @@
 
 #include <TimerOne.h>
 #include "FastLED.h"
+#include "character.h"
+#include "Game.h"
 #include <avr/pgmspace.h>
 
 // LED MATRIX CODE
@@ -15,9 +17,7 @@
 CRGB leds[NUM_LEDS];                                          // Defining leds table for FastLed
 #define DATA_PIN 6                                            // Output pin for FastLed
 
-// LED Matrix
-// top column is from 0 to 7, bottom one from 56 to 63 (for a 8x8 matrix)
-byte LEDMatrix[displayNumberOfRows][displayNumberOfColumns];
+
 
 
 // Original colours for leds.
@@ -58,14 +58,19 @@ unsigned int lastDownButtonValue = LOW;
 
 
 // ---------------- Game Parameters ------------------
-
-pointOnMatrix playerIntialPosition = {2,2};
-pointOnMatrix ennemyInitialPosition = {4,4};
+/*
+const pointOnMatrix playerIntialPosition = {2,2};
+const pointOnMatrix ennemyInitialPosition = {4,4};
+const byte quantityOfSheetsToGet = 8;
 
 // ---------------- Game Variables -------------------
 
 pointOnMatrix playerPosition = playerIntialPosition;
 pointOnMatrix ennemyPosition = ennemyInitialPosition;
+byte gotSheets = 0;
+*/
+
+  Game game;
 
 
 void setup() {
@@ -87,7 +92,7 @@ void setup() {
 void loop() {
 
 if(millis() - lastMillis > 500) {
-  automaticallyMoveEnnemy();
+  game.moveEnnemyAuto();
   lastMillis = millis();
 }
 
@@ -97,29 +102,29 @@ if(millis() - lastMillis > 500) {
     
     leftButtonValue = analogRead(leftButton);
     if (leftButtonValue < 200 && lastLeftButtonValue > 800) {
-      movePlayerLeft();
+      game.movePlayerLeft();
     }
     lastLeftButtonValue = leftButtonValue; // And we update what we read just after
 
     upButtonValue = analogRead(upButton);
     if (upButtonValue < 200 && lastUpButtonValue > 800) { 
-      movePlayerUp();
+      game.movePlayerUp();
     }
     lastUpButtonValue = upButtonValue; // And we update what we read just after
 
     rightButtonValue = analogRead(rightButton);
     if (rightButtonValue < 200 && lastRightButtonValue > 800) { 
-      movePlayerRight();
+      game.movePlayerRight();
     }
     lastRightButtonValue = rightButtonValue; // And we update what we read just after
 
     downButtonValue = analogRead(downButton);
     if (downButtonValue < 200 && lastDownButtonValue > 800) { 
-      movePlayerDown();
+      game.movePlayerDown();
     }
     lastDownButtonValue = downButtonValue; // And we update what we read just after
 
-  updateLEDMatrix();
-  outputDisplay();
+  game.updateLEDMatrix();
+  outputDisplay(game);
   delay(1);
 }
