@@ -80,6 +80,10 @@ void setup() {
   pinMode(rightButton, INPUT);
   pinMode(aButton, INPUT);
   pinMode(bButton, INPUT);
+
+  // Initializing player display.
+  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
+
 }
 
 void loop() {
@@ -89,9 +93,6 @@ if(lastMillis - millis() > 500) {
 
   lastMillis = millis();
 }
-
-    setPlayerPositionInMatrix();
-    digitalOutputDisplay();
 
     // ----------------------------------------------------------
     // Checking if a button has been pushed, reacting accordingly
