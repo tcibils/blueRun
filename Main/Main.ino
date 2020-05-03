@@ -60,10 +60,12 @@ unsigned int lastDownButtonValue = LOW;
 // ---------------- Game Parameters ------------------
 
 pointOnMatrix playerIntialPosition = {2,2};
+pointOnMatrix ennemyInitialPosition = {4,4};
 
 // ---------------- Game Variables -------------------
 
 pointOnMatrix playerPosition = playerIntialPosition;
+pointOnMatrix ennemyPosition = ennemyInitialPosition;
 
 
 void setup() {
@@ -80,17 +82,12 @@ void setup() {
   pinMode(rightButton, INPUT);
   pinMode(aButton, INPUT);
   pinMode(bButton, INPUT);
-
-  // Initializing player display.
-  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
-
 }
 
 void loop() {
 
-if(lastMillis - millis() > 500) {
-
-
+if(millis() - lastMillis > 500) {
+  automaticallyMoveEnnemy();
   lastMillis = millis();
 }
 

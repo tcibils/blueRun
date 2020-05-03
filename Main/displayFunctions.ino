@@ -18,6 +18,9 @@ void updateLEDMatrix() {
 
   // Place the player
   LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
+
+  // Place the ennemy
+  LEDMatrix[ennemyPosition.lineCoordinate][ennemyPosition.columnCoordinate] = Red;
  
 }
 
