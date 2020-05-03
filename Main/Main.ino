@@ -99,34 +99,30 @@ if(lastMillis - millis() > 500) {
     
     leftButtonValue = analogRead(leftButton);
     if (leftButtonValue < 200 && lastLeftButtonValue > 800) {
-      
+      movePlayerLeft();
     }
     lastLeftButtonValue = leftButtonValue; // And we update what we read just after
 
     upButtonValue = analogRead(upButton);
     if (upButtonValue < 200 && lastUpButtonValue > 800) { 
-      
+      movePlayerUp();
     }
     lastUpButtonValue = upButtonValue; // And we update what we read just after
 
     rightButtonValue = analogRead(rightButton);
     if (rightButtonValue < 200 && lastRightButtonValue > 800) { 
-      
+      movePlayerRight();
     }
     lastRightButtonValue = rightButtonValue; // And we update what we read just after
 
     downButtonValue = analogRead(downButton);
     if (downButtonValue < 200 && lastDownButtonValue > 800) { 
-      
+      movePlayerDown();
     }
     lastDownButtonValue = downButtonValue; // And we update what we read just after
 
   outputDisplay();
   delay(1);
-}
-
-void setPlayerPositionInMatrix() {
-  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
 }
 
 // Makes the whole "LEDMatrix" equals to 0, i.e. each LED is off
@@ -138,7 +134,6 @@ void clearLEDMatrix() {
     }
   }
 }
-
 
 // We update the physical display of the LED matrix, based on the LEDMatrix
 void outputDisplay() {
