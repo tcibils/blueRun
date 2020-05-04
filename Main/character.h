@@ -1,7 +1,6 @@
-#include <Arduino.h>
-
 #ifndef CHARACTER_H
 #define CHARACTER_H
+#include <Arduino.h>
 
 class Character {
   public:

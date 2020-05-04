@@ -1,7 +1,6 @@
-#include <Arduino.h>
-
 #ifndef ENNEMY_H
 #define ENNEMY_H
+#include <Arduino.h>
 
 #include "character.h"
 

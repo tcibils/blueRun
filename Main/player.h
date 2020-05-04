@@ -1,8 +1,7 @@
-#include <Arduino.h>
-
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <Arduino.h>
 #include "character.h"
 
 class Player : public Character {
