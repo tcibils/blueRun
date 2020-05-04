@@ -42,5 +42,9 @@ void Game::updateLEDMatrix() {
 
   // Place the ennemy
   LEDMatrix[this->ennemy.getLineCoordinate()][this->ennemy.getColumnCoordinate()] = 3;
- 
+
+  // Place the apple if it's alive
+  if(this->apple.getLifeStatus() == 1) {
+    LEDMatrix[this->apple.getLineCoordinate()][this->apple.getColumnCoordinate()] = 4;
+  }
 }

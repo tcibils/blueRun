@@ -5,7 +5,7 @@
 #include "character.h"
 #include "player.h"
 #include "ennemy.h"
-#include "sheet.h"
+#include "apple.h"
 
 // --------------- Display parameters ----------------------------------------
 // LED MATRIX CODE
@@ -19,7 +19,8 @@ class Game {
   public:
 
   // Constructor
-  Game() : player(1,1), ennemy(2,2){    
+  Game() : player(1,1), ennemy(2,2), apple(displayNumberOfRows, displayNumberOfColumns){    
+        Serial.print("launching game");
   }
 
   void movePlayerUp();
@@ -40,7 +41,7 @@ class Game {
   private:
   Player player;
   Ennemy ennemy;
-  
+  Apple apple;
 };
 
 #endif

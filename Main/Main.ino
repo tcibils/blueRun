@@ -52,6 +52,8 @@ void setup() {
   // Set matrix pins to output
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
 
+  randomSeed(analogRead(0));
+  
   // Set button pins to input
   pinMode(leftButton, INPUT);
   pinMode(upButton, INPUT);
@@ -60,6 +62,7 @@ void setup() {
   pinMode(aButton, INPUT);
   pinMode(bButton, INPUT);
 }
+
 
 void loop() {
 
