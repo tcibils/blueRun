@@ -7,7 +7,13 @@
 #include "player.h"
 #include "ennemy.h"
 
+// --------------- Display parameters ----------------------------------------
+// LED MATRIX CODE
+#define displayNumberOfRows 10                          // Number of rows
+#define displayNumberOfColumns 6                       // Number of coumns
+#define NUM_LEDS displayNumberOfRows * displayNumberOfColumns // Number of LEDs
 
+// --------------- Game parameters -------------------------------------------
 
 class Game {
   public:
@@ -28,7 +34,7 @@ class Game {
   
   // LED Matrix
   // top column is from 0 to 7, bottom one from 56 to 63 (for a 8x8 matrix)
-  byte LEDMatrix[10][6];
+  byte LEDMatrix[displayNumberOfRows][displayNumberOfColumns];
   
 
   private:

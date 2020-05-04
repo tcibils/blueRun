@@ -9,16 +9,8 @@
 #include "Game.h"
 #include <avr/pgmspace.h>
 
-// LED MATRIX CODE
-#define displayNumberOfRows 10                          // Number of rows
-#define displayNumberOfColumns 6                       // Number of coumns
-#define NUM_LEDS displayNumberOfRows * displayNumberOfColumns // Number of LEDs
-
 CRGB leds[NUM_LEDS];                                          // Defining leds table for FastLed
 #define DATA_PIN 6                                            // Output pin for FastLed
-
-
-
 
 // Original colours for leds.
 const byte Black = 0;
@@ -37,12 +29,6 @@ const byte Purple = 5;
 #define aButton A0           // Input pin for button A
 #define bButton A1           // Input pin for button B
 
-
-struct pointOnMatrix {
-  byte lineCoordinate;
-  byte columnCoordinate;
-};
-
 unsigned long lastMillis = 0;
 unsigned const int growthSpeed = 1500;  // In miliseconds, every how much will the menace grow
 
@@ -56,22 +42,8 @@ unsigned int lastRightButtonValue = LOW;
 unsigned int lastUpButtonValue = LOW;
 unsigned int lastDownButtonValue = LOW;
 
-
-// ---------------- Game Parameters ------------------
-/*
-const pointOnMatrix playerIntialPosition = {2,2};
-const pointOnMatrix ennemyInitialPosition = {4,4};
-const byte quantityOfSheetsToGet = 8;
-
-// ---------------- Game Variables -------------------
-
-pointOnMatrix playerPosition = playerIntialPosition;
-pointOnMatrix ennemyPosition = ennemyInitialPosition;
-byte gotSheets = 0;
-*/
-
-  Game game;
-
+// Initializing the game
+Game game;
 
 void setup() {
 

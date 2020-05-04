@@ -6,7 +6,7 @@
   }
   
   void Game::movePlayerDown() {
-    this->player.moveCharacterDown(10);
+    this->player.moveCharacterDown(displayNumberOfRows);
   }
   
   void Game::movePlayerLeft() {
@@ -14,7 +14,7 @@
   }
   
   void Game::movePlayerRight() {
-    this->player.moveCharacterRight(6);
+    this->player.moveCharacterRight(displayNumberOfColumns);
   }
 
   void Game::moveEnnemyAuto() {
@@ -25,8 +25,8 @@
   // Makes the whole "LEDMatrix" equals to 0, i.e. each LED is off
 void Game::clearLEDMatrix() {
   // Just seting le LEDmatrix to Wall
-  for (byte i = 0; i < 10; i++)  {
-    for (byte j = 0; j < 6; j++) {
+  for (byte i = 0; i < displayNumberOfRows; i++)  {
+    for (byte j = 0; j < displayNumberOfColumns; j++) {
       this->LEDMatrix[i][j] = 0;
     }
   }
