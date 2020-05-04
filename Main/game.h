@@ -6,6 +6,7 @@
 #include "character.h"
 #include "player.h"
 #include "ennemy.h"
+#include "sheet.h"
 
 // --------------- Display parameters ----------------------------------------
 // LED MATRIX CODE
