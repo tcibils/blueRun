@@ -5,12 +5,20 @@
 
 #include <TimerOne.h>
 #include "FastLED.h"
-#include "character.h"
-#include "Game.h"
 #include <avr/pgmspace.h>
+
+// LED MATRIX CODE
+#define displayNumberOfRows 10                          // Number of rows
+#define displayNumberOfColumns 6                       // Number of coumns
+#define NUM_LEDS displayNumberOfRows * displayNumberOfColumns // Number of LEDs
 
 CRGB leds[NUM_LEDS];                                          // Defining leds table for FastLed
 #define DATA_PIN 6                                            // Output pin for FastLed
+
+// LED Matrix
+// top column is from 0 to 7, bottom one from 56 to 63 (for a 8x8 matrix)
+byte LEDMatrix[displayNumberOfRows][displayNumberOfColumns];
+
 
 // Original colours for leds.
 const byte Black = 0;
@@ -29,6 +37,12 @@ const byte Purple = 5;
 #define aButton A0           // Input pin for button A
 #define bButton A1           // Input pin for button B
 
+
+struct pointOnMatrix {
+  byte lineCoordinate;
+  byte columnCoordinate;
+};
+
 unsigned long lastMillis = 0;
 unsigned const int growthSpeed = 1500;  // In miliseconds, every how much will the menace grow
 
@@ -42,8 +56,17 @@ unsigned int lastRightButtonValue = LOW;
 unsigned int lastUpButtonValue = LOW;
 unsigned int lastDownButtonValue = LOW;
 
-// Initializing the game
-Game game;
+
+// ---------------- Game Parameters ------------------
+
+pointOnMatrix playerIntialPosition = {2,2};
+pointOnMatrix ennemyInitialPosition = {4,4};
+
+// ---------------- Game Variables -------------------
+
+pointOnMatrix playerPosition = playerIntialPosition;
+pointOnMatrix ennemyPosition = ennemyInitialPosition;
+
 
 void setup() {
 
@@ -52,8 +75,6 @@ void setup() {
   // Set matrix pins to output
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
 
-  randomSeed(analogRead(0));
-  
   // Set button pins to input
   pinMode(leftButton, INPUT);
   pinMode(upButton, INPUT);
@@ -63,11 +84,10 @@ void setup() {
   pinMode(bButton, INPUT);
 }
 
-
 void loop() {
 
 if(millis() - lastMillis > 500) {
-  game.moveEnnemyAuto();
+  automaticallyMoveEnnemy();
   lastMillis = millis();
 }
 
@@ -77,29 +97,29 @@ if(millis() - lastMillis > 500) {
     
     leftButtonValue = analogRead(leftButton);
     if (leftButtonValue < 200 && lastLeftButtonValue > 800) {
-      game.movePlayerLeft();
+      movePlayerLeft();
     }
     lastLeftButtonValue = leftButtonValue; // And we update what we read just after
 
     upButtonValue = analogRead(upButton);
     if (upButtonValue < 200 && lastUpButtonValue > 800) { 
-      game.movePlayerUp();
+      movePlayerUp();
     }
     lastUpButtonValue = upButtonValue; // And we update what we read just after
 
     rightButtonValue = analogRead(rightButton);
     if (rightButtonValue < 200 && lastRightButtonValue > 800) { 
-      game.movePlayerRight();
+      movePlayerRight();
     }
     lastRightButtonValue = rightButtonValue; // And we update what we read just after
 
     downButtonValue = analogRead(downButton);
     if (downButtonValue < 200 && lastDownButtonValue > 800) { 
-      game.movePlayerDown();
+      movePlayerDown();
     }
     lastDownButtonValue = downButtonValue; // And we update what we read just after
 
-  game.updateLEDMatrix();
-  outputDisplay(game);
+  updateLEDMatrix();
+  outputDisplay();
   delay(1);
 }
