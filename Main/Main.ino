@@ -59,14 +59,20 @@ unsigned int lastDownButtonValue = LOW;
 
 // ---------------- Game Parameters ------------------
 
-pointOnMatrix playerIntialPosition = {2,2};
-pointOnMatrix ennemyInitialPosition = {4,4};
+pointOnMatrix playerIntialPosition = {2,2};         // Initial position of the player
+pointOnMatrix ennemyInitialPosition = {4,4};        // Initial position of the ennemy
+byte initialApplePresence = 0;                       // If an apple is present straight away at the game start. 1 for yes, 0 for no.
+byte initialGameStatus = 0;                         // Phase of the game the player is starting at
+
 
 // ---------------- Game Variables -------------------
+// -------------- Do not touch that ------------------
 
 pointOnMatrix playerPosition = playerIntialPosition;
 pointOnMatrix ennemyPosition = ennemyInitialPosition;
-
+byte applePresence = initialApplePresence;            // 1 if an apple is present, 0 if no.
+byte gameStatus = initialGameStatus;                  // keeps track of the various game phases.
+pointOnMatrix applePosition = {0,0};                  // apple position on the map.
 
 void setup() {
 
@@ -90,6 +96,10 @@ if(millis() - lastMillis > 500) {
   automaticallyMoveEnnemy();
   lastMillis = millis();
 }
+
+    if(applePresence == 0) {
+      appleGeneration();
+    }
 
     // ----------------------------------------------------------
     // Checking if a button has been pushed, reacting accordingly
