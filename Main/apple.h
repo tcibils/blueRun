@@ -8,6 +8,8 @@ class Apple {
 
   // Generates an apple randomly on the map
   Apple(byte maxLineCoordinate, byte maxColumnCoordinate) {
+    
+    randomSeed(analogRead(0));
     this->lineCoordinate = random(maxLineCoordinate);
     this->columnCoordinate = random(maxColumnCoordinate);
 
