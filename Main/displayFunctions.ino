@@ -22,8 +22,8 @@ void updateLEDMatrix() {
   // Place the ennemy
   LEDMatrix[ennemyPosition.lineCoordinate][ennemyPosition.columnCoordinate] = Red;
 
-  if(applePresence == 1) {
-    LEDMatrix[applePosition.lineCoordinate][applePosition.columnCoordinate] = Green;
+  if(sheetPresence == 1) {
+    LEDMatrix[sheetPosition.lineCoordinate][sheetPosition.columnCoordinate] = White;
   }
 }
 

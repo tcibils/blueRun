@@ -1,15 +1,18 @@
-void appleGeneration() {
+void sheetGeneration() {
+  
   randomSeed(analogRead(A0));
 
-  bool appleFarFromPlayer = false;
+  bool sheetFarFromPlayer = false;
+  byte rowPosition = random(displayNumberOfRows);
+  byte columnPosition = random(displayNumberOfColumns);
 
-  // While the apple is seeded too near to the player, we re-generate one.
-  while(!appleFarFromPlayer) {
-    byte rowPosition = random(displayNumberOfRows);
-    byte columnPosition = random(displayNumberOfColumns);
-    if(rowPosition > playerPosition.lineCoordinate || playerPosition.lineCoordinate < rowPosition) {
-      if(columnPosition < playerPosition.columCoordinate || playerPosition.columCoordinate > playerPosition) {
-        appleFarFromPlayer = true;
+  // While the sheet is seeded too near to the player, we re-generate one.
+  while(!sheetFarFromPlayer) {
+    rowPosition = random(displayNumberOfRows);
+    columnPosition = random(displayNumberOfColumns);
+    if(rowPosition < playerPosition.lineCoordinate || rowPosition > playerPosition.lineCoordinate) {
+      if(columnPosition < playerPosition.columnCoordinate || columnPosition > playerPosition.columnCoordinate) {
+        sheetFarFromPlayer = true;
       }
     } 
    }
@@ -25,6 +28,19 @@ void appleGeneration() {
   Serial.print("\n");
   */
   
-  applePosition = {rowPosition, columnPosition};
-  applePresence = 1;
+  sheetPosition = {rowPosition, columnPosition};
+  sheetPresence = 1;
+}
+
+void checkIfSheetIsEaten() {
+  // If the player is over the sheet
+  if(playerPosition.lineCoordinate == sheetPosition.lineCoordinate) {
+    if(playerPosition.columnCoordinate == sheetPosition.columnCoordinate) {
+      // The sheet disapears
+      sheetPresence = 0;
+
+      // The game goes up by one level...
+      gameStatus++;
+    }
+  }
 }

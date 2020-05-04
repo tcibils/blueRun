@@ -61,7 +61,7 @@ unsigned int lastDownButtonValue = LOW;
 
 pointOnMatrix playerIntialPosition = {2,2};         // Initial position of the player
 pointOnMatrix ennemyInitialPosition = {4,4};        // Initial position of the ennemy
-byte initialApplePresence = 0;                       // If an apple is present straight away at the game start. 1 for yes, 0 for no.
+byte initialSheetPresence = 0;                       // If an sheet is present straight away at the game start. 1 for yes, 0 for no.
 byte initialGameStatus = 0;                         // Phase of the game the player is starting at
 
 
@@ -70,9 +70,9 @@ byte initialGameStatus = 0;                         // Phase of the game the pla
 
 pointOnMatrix playerPosition = playerIntialPosition;
 pointOnMatrix ennemyPosition = ennemyInitialPosition;
-byte applePresence = initialApplePresence;            // 1 if an apple is present, 0 if no.
+byte sheetPresence = initialSheetPresence;            // 1 if an sheet is present, 0 if no.
 byte gameStatus = initialGameStatus;                  // keeps track of the various game phases.
-pointOnMatrix applePosition = {0,0};                  // apple position on the map.
+pointOnMatrix sheetPosition = {0,0};                  // sheet position on the map.
 
 void setup() {
 
@@ -97,8 +97,8 @@ if(millis() - lastMillis > 500) {
   lastMillis = millis();
 }
 
-    if(applePresence == 0) {
-      appleGeneration();
+    if(sheetPresence == 0) {
+      sheetGeneration();
     }
 
     // ----------------------------------------------------------
@@ -129,6 +129,7 @@ if(millis() - lastMillis > 500) {
     }
     lastDownButtonValue = downButtonValue; // And we update what we read just after
 
+  checkIfSheetIsEaten();
   updateLEDMatrix();
   outputDisplay();
   delay(1);
