@@ -23,10 +23,11 @@ byte LEDMatrix[displayNumberOfRows][displayNumberOfColumns];
 // Original colours for leds.
 const byte Black = 0;
 const byte White = 1;
-const byte Blue = 2;
+const byte DarkBlue = 2;
 const byte Red = 3;
 const byte Green = 4;
 const byte Purple = 5;
+const byte LightBlue = 6;
 
 
 // Pin used from the arduino
@@ -92,6 +93,8 @@ void setup() {
   pinMode(rightButton, INPUT);
   pinMode(aButton, INPUT);
   pinMode(bButton, INPUT);
+
+  startGameSixTimeTen();
 }
 
 void loop() {

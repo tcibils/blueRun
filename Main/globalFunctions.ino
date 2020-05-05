@@ -35,4 +35,7 @@ void resetGame() {
   // kinda hardcoding position reinitialization for now
   playerPosition = playerIntialPosition;
   ennemyPosition = ennemyInitialPosition;
+
+  // Play game reset
+  startGameSixTimeTen();
 }
