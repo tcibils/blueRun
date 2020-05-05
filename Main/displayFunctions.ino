@@ -17,7 +17,7 @@ void updateLEDMatrix() {
   clearLEDMatrix();
 
   // Place the player
-  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = DarkBlue;
+  LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
 
   // Place the ennemy, if he is present
   if(ennemyPresence == 1) {
@@ -42,8 +42,7 @@ void outputDisplay() {
         if(LEDMatrix[rowIndex][columnIndex] == Black) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::Black;}
         if(LEDMatrix[rowIndex][columnIndex] == White) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::White;}
         if(LEDMatrix[rowIndex][columnIndex] == Green) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::Green;}
-        if(LEDMatrix[rowIndex][columnIndex] == DarkBlue) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::DarkBlue;}
-        if(LEDMatrix[rowIndex][columnIndex] == LightBlue) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::LightSkyBlue;}
+        if(LEDMatrix[rowIndex][columnIndex] == Blue) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::Blue;}
         if(LEDMatrix[rowIndex][columnIndex] == Red) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::Red;}
         if(LEDMatrix[rowIndex][columnIndex] == Purple) {leds[(columnIndex + 1)*displayNumberOfRows - rowIndex - 1] = CRGB::Purple;}
       }
@@ -52,8 +51,7 @@ void outputDisplay() {
         if(LEDMatrix[rowIndex][columnIndex] == Black) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::Black;}
         if(LEDMatrix[rowIndex][columnIndex] == White) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::White;}
         if(LEDMatrix[rowIndex][columnIndex] == Green) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::Green;}
-        if(LEDMatrix[rowIndex][columnIndex] == DarkBlue) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::DarkBlue;}
-        if(LEDMatrix[rowIndex][columnIndex] == LightBlue) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::LightSkyBlue;}
+        if(LEDMatrix[rowIndex][columnIndex] == Blue) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::Blue;}
         if(LEDMatrix[rowIndex][columnIndex] == Red) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::Red;}
         if(LEDMatrix[rowIndex][columnIndex] == Purple) {leds[columnIndex*displayNumberOfRows + rowIndex] = CRGB::Purple;}
       }

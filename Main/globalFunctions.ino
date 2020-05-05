@@ -29,8 +29,9 @@ void upgradeGameLevel() {
 }
 
 void resetGame() {
-  gameStatus = 0;       // Start again at level 0
-  ennemyPresence = 0;   // Ennemy shouldn't be present
+  gameStatus = initialGameStatus;           // Start again at level 0
+  ennemyPresence = initialEnnemyPresence;   // Ennemy shouldn't be present
+  ennemySpeed = initialEnnemySpeed;         // and should be slow
   
   // kinda hardcoding position reinitialization for now
   playerPosition = playerIntialPosition;
