@@ -31,16 +31,3 @@ void sheetGeneration() {
   sheetPosition = {rowPosition, columnPosition};
   sheetPresence = 1;
 }
-
-void checkIfSheetIsEaten() {
-  // If the player is over the sheet
-  if(playerPosition.lineCoordinate == sheetPosition.lineCoordinate) {
-    if(playerPosition.columnCoordinate == sheetPosition.columnCoordinate) {
-      // The sheet disapears
-      sheetPresence = 0;
-
-      // The game goes up by one level...
-      gameStatus++;
-    }
-  }
-}

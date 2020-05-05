@@ -1,19 +1,3 @@
-void checkIfPlayerIsDead() {
-  // If the ennemy is over the player
-  if(playerPosition.lineCoordinate == ennemyPosition.lineCoordinate) {
-    if(playerPosition.columnCoordinate == ennemyPosition.columnCoordinate) {
-      gameStatus = 9;
-      gameOverSixTimeTen();
-      gameStatus = 0;
-
-      // hardcoding position reinitialization for now
-      playerPosition = playerIntialPosition;
-      ennemyPosition = ennemyInitialPosition;
-    }
-  }
-}
-
-
 // ----------- Moving Functions -----------------
 
 void movePlayerLeft() {
