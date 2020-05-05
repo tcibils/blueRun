@@ -19,9 +19,12 @@ void updateLEDMatrix() {
   // Place the player
   LEDMatrix[playerPosition.lineCoordinate][playerPosition.columnCoordinate] = Blue;
 
-  // Place the ennemy
-  LEDMatrix[ennemyPosition.lineCoordinate][ennemyPosition.columnCoordinate] = Red;
+  // Place the ennemy, if he is present
+  if(ennemyPresence == 1) {
+    LEDMatrix[ennemyPosition.lineCoordinate][ennemyPosition.columnCoordinate] = Red;
+  }
 
+  // Place the sheet, if it is present
   if(sheetPresence == 1) {
     LEDMatrix[sheetPosition.lineCoordinate][sheetPosition.columnCoordinate] = White;
   }
