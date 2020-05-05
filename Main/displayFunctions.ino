@@ -21,7 +21,10 @@ void updateLEDMatrix() {
 
   // Place the ennemy
   LEDMatrix[ennemyPosition.lineCoordinate][ennemyPosition.columnCoordinate] = Red;
- 
+
+  if(sheetPresence == 1) {
+    LEDMatrix[sheetPosition.lineCoordinate][sheetPosition.columnCoordinate] = White;
+  }
 }
 
 // We update the physical display of the LED matrix, based on the LEDMatrix

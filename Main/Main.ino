@@ -59,14 +59,20 @@ unsigned int lastDownButtonValue = LOW;
 
 // ---------------- Game Parameters ------------------
 
-pointOnMatrix playerIntialPosition = {2,2};
-pointOnMatrix ennemyInitialPosition = {4,4};
+pointOnMatrix playerIntialPosition = {1,1};         // Initial position of the player
+pointOnMatrix ennemyInitialPosition = {5,5};        // Initial position of the ennemy
+byte initialSheetPresence = 0;                       // If an sheet is present straight away at the game start. 1 for yes, 0 for no.
+byte initialGameStatus = 0;                         // Phase of the game the player is starting at. 9 means game over
+
 
 // ---------------- Game Variables -------------------
+// -------------- Do not touch that ------------------
 
 pointOnMatrix playerPosition = playerIntialPosition;
 pointOnMatrix ennemyPosition = ennemyInitialPosition;
-
+byte sheetPresence = initialSheetPresence;            // 1 if an sheet is present, 0 if no.
+byte gameStatus = initialGameStatus;                  // keeps track of the various game phases.
+pointOnMatrix sheetPosition = {0,0};                  // sheet position on the map.
 
 void setup() {
 
@@ -85,40 +91,47 @@ void setup() {
 }
 
 void loop() {
-
-if(millis() - lastMillis > 500) {
-  automaticallyMoveEnnemy();
-  lastMillis = millis();
-}
-
-    // ----------------------------------------------------------
-    // Checking if a button has been pushed, reacting accordingly
-    // ----------------------------------------------------------
-    
-    leftButtonValue = analogRead(leftButton);
-    if (leftButtonValue < 200 && lastLeftButtonValue > 800) {
-      movePlayerLeft();
+    if(millis() - lastMillis > 500) {
+      automaticallyMoveEnnemy();
+      lastMillis = millis();
     }
-    lastLeftButtonValue = leftButtonValue; // And we update what we read just after
+  
+      if(sheetPresence == 0) {
+        sheetGeneration();
+      }
+  
+      // ----------------------------------------------------------
+      // Checking if a button has been pushed, reacting accordingly
+      // ----------------------------------------------------------
+      
+      leftButtonValue = analogRead(leftButton);
+      if (leftButtonValue < 200 && lastLeftButtonValue > 800) {
+        movePlayerLeft();
+      }
+      lastLeftButtonValue = leftButtonValue; // And we update what we read just after
+  
+      upButtonValue = analogRead(upButton);
+      if (upButtonValue < 200 && lastUpButtonValue > 800) { 
+        movePlayerUp();
+      }
+      lastUpButtonValue = upButtonValue; // And we update what we read just after
+  
+      rightButtonValue = analogRead(rightButton);
+      if (rightButtonValue < 200 && lastRightButtonValue > 800) { 
+        movePlayerRight();
+      }
+      lastRightButtonValue = rightButtonValue; // And we update what we read just after
+  
+      downButtonValue = analogRead(downButton);
+      if (downButtonValue < 200 && lastDownButtonValue > 800) { 
+        movePlayerDown();
+      }
+      lastDownButtonValue = downButtonValue; // And we update what we read just after
+  
+    checkIfSheetIsEaten();
+    checkIfPlayerIsDead();
 
-    upButtonValue = analogRead(upButton);
-    if (upButtonValue < 200 && lastUpButtonValue > 800) { 
-      movePlayerUp();
-    }
-    lastUpButtonValue = upButtonValue; // And we update what we read just after
-
-    rightButtonValue = analogRead(rightButton);
-    if (rightButtonValue < 200 && lastRightButtonValue > 800) { 
-      movePlayerRight();
-    }
-    lastRightButtonValue = rightButtonValue; // And we update what we read just after
-
-    downButtonValue = analogRead(downButton);
-    if (downButtonValue < 200 && lastDownButtonValue > 800) { 
-      movePlayerDown();
-    }
-    lastDownButtonValue = downButtonValue; // And we update what we read just after
-
+  
   updateLEDMatrix();
   outputDisplay();
   delay(1);
