@@ -95,7 +95,8 @@ void loop() {
       automaticallyMoveEnnemy();
       lastMillis = millis();
     }
-  
+
+    if(gameStatus < 9) {
       if(sheetPresence == 0) {
         sheetGeneration();
       }
@@ -128,9 +129,18 @@ void loop() {
       }
       lastDownButtonValue = downButtonValue; // And we update what we read just after
   
-    checkIfSheetIsEaten();
-    checkIfPlayerIsDead();
+      checkIfSheetIsEaten();
+      checkIfPlayerIsDead();
+    }
 
+    if(gameStatus == 9) {
+      gameOverSixTimeTen(); // Displays the game over
+      gameStatus = 0;       // Starts the game again
+      
+      // kinda hardcoding position reinitialization for now
+      playerPosition = playerIntialPosition;
+      ennemyPosition = ennemyInitialPosition;
+    }
   
   updateLEDMatrix();
   outputDisplay();

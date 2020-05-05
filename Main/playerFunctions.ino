@@ -3,12 +3,6 @@ void checkIfPlayerIsDead() {
   if(playerPosition.lineCoordinate == ennemyPosition.lineCoordinate) {
     if(playerPosition.columnCoordinate == ennemyPosition.columnCoordinate) {
       gameStatus = 9;
-      gameOverSixTimeTen();
-      gameStatus = 0;
-
-      // hardcoding position reinitialization for now
-      playerPosition = playerIntialPosition;
-      ennemyPosition = ennemyInitialPosition;
     }
   }
 }

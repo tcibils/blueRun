@@ -153,7 +153,4 @@ void gameOverSixTimeTen() {
   }
   outputDisplay();
   delay(2500);
-
-  gameStatus = 0;
-
 }
