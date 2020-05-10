@@ -1,9 +1,12 @@
+
+#include <avr/pgmspace.h> 
+
 void startGameSixTimeTen() {
-  const byte PROGMEM startSpriteOne[displayNumberOfRows][displayNumberOfColumns] = {
+  const byte startSpriteOne[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {2, 0, 1, 0, 0, 1},
@@ -11,21 +14,22 @@ void startGameSixTimeTen() {
     {2, 0, 1, 0, 0, 1},
     {0, 2, 1, 0, 0, 1}
   };
+  
 
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteOne[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteOne[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteTwo[displayNumberOfRows][displayNumberOfColumns] = {
+  const byte startSpriteTwo[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 2, 0, 0, 0, 1},
@@ -37,17 +41,17 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteTwo[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteTwo[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteThree[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte startSpriteThree[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 2, 0, 0, 1},
@@ -59,17 +63,17 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteThree[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteThree[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteFour[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte startSpriteFour[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 0, 2, 0, 1},
@@ -81,17 +85,17 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteFour[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteFour[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteFive[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte startSpriteFive[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 2, 1},
@@ -103,17 +107,17 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteFive[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteFive[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteSix[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte startSpriteSix[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
@@ -125,17 +129,17 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteSix[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteSix[i][j]));
     }
   }
   outputDisplay();
   delay(750);
 
-  const byte PROGMEM startSpriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte startSpriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
-    {0, 0, 1, 0, 0, 0},
+    {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
     {0, 0, 1, 0, 0, 1},
@@ -147,7 +151,7 @@ void startGameSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = startSpriteSeven[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(startSpriteSeven[i][j]));
     }
   }
   outputDisplay();
@@ -156,7 +160,7 @@ void startGameSixTimeTen() {
 
 void gameOverSixTimeTen() {
   
-  const byte PROGMEM spriteOne[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte spriteOne[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
@@ -172,13 +176,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteOne[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteOne[i][j]));
     }
   }
   outputDisplay();
   delay(1000);
 
-  const byte PROGMEM spriteTwo[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte spriteTwo[displayNumberOfRows][displayNumberOfColumns] = {
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 0, 0, 0, 0},
@@ -194,13 +198,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteTwo[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteTwo[i][j]));
     }
   }
   outputDisplay();
   delay(1500);
 
-    const byte PROGMEM spriteThree[displayNumberOfRows][displayNumberOfColumns] = {
+    const PROGMEM byte spriteThree[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
@@ -216,13 +220,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteThree[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteThree[i][j]));
     }
   }
   outputDisplay();
   delay(500);
 
-  const byte PROGMEM spriteFour[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte spriteFour[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -238,13 +242,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteFour[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteFour[i][j]));
     }
   }
   outputDisplay();
   delay(500);
 
-  const byte PROGMEM spriteFive[displayNumberOfRows][displayNumberOfColumns] = {
+  const PROGMEM byte spriteFive[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -260,13 +264,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteFive[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteFive[i][j]));
     }
   }
   outputDisplay();
   delay(2250);
 
-    const byte PROGMEM spriteSix[displayNumberOfRows][displayNumberOfColumns] = {
+    const PROGMEM byte spriteSix[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -282,13 +286,13 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteSix[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteSix[i][j]));
     }
   }
   outputDisplay();
   delay(500);
 
-      const byte PROGMEM spriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
+      const PROGMEM byte spriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
@@ -304,7 +308,7 @@ void gameOverSixTimeTen() {
   clearLEDMatrix();
   for(byte i = 0; i<displayNumberOfRows; i++) {
     for(byte j = 0; j<displayNumberOfColumns; j++) {
-      LEDMatrix[i][j] = spriteSeven[i][j];
+      LEDMatrix[i][j] = pgm_read_byte(&(spriteSeven[i][j]));
     }
   }
   outputDisplay();
