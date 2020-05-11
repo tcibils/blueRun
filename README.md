@@ -1,2 +1,3 @@
-# blueRun
- A small game where blue will have to run =)
+A very small game, inspired by Slenderman. It features a blue character on a 10x6 led matrix, who should catch white sheets. Once he catches the first one, a red ennemy appears, and tries to catch blue. Blue continues to catch sheets, but the more he picks up, the faster the ennemy goes... Until blue is catched and eaten by red. All that functions well, but balance isn't there, and game is quite unfinished. It misses a satisfactory element, so that the player would want to play again.
+
+Features game starting and ending sprites =)
