@@ -2,7 +2,7 @@
 #include <avr/pgmspace.h> 
 
 void startGameSixTimeTen() {
-  const byte startSpriteOne[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
+  static const byte startSpriteOne[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -25,7 +25,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const byte startSpriteTwo[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
+  static const byte startSpriteTwo[displayNumberOfRows][displayNumberOfColumns] PROGMEM = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -47,7 +47,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const PROGMEM byte startSpriteThree[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte startSpriteThree[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -69,7 +69,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const PROGMEM byte startSpriteFour[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte startSpriteFour[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -91,7 +91,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const PROGMEM byte startSpriteFive[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte startSpriteFive[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -113,7 +113,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const PROGMEM byte startSpriteSix[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte startSpriteSix[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -135,7 +135,7 @@ void startGameSixTimeTen() {
   outputDisplay();
   delay(750);
 
-  const PROGMEM byte startSpriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte startSpriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 1, 1, 0},
@@ -160,7 +160,7 @@ void startGameSixTimeTen() {
 
 void gameOverSixTimeTen() {
   
-  const PROGMEM byte spriteOne[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte spriteOne[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
@@ -182,7 +182,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(1000);
 
-  const PROGMEM byte spriteTwo[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte spriteTwo[displayNumberOfRows][displayNumberOfColumns] = {
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 0, 0, 0, 0},
@@ -204,7 +204,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(1500);
 
-    const PROGMEM byte spriteThree[displayNumberOfRows][displayNumberOfColumns] = {
+    static const PROGMEM byte spriteThree[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
@@ -226,7 +226,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(500);
 
-  const PROGMEM byte spriteFour[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte spriteFour[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -248,7 +248,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(500);
 
-  const PROGMEM byte spriteFive[displayNumberOfRows][displayNumberOfColumns] = {
+  static const PROGMEM byte spriteFive[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -270,7 +270,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(2250);
 
-    const PROGMEM byte spriteSix[displayNumberOfRows][displayNumberOfColumns] = {
+    static const PROGMEM byte spriteSix[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
@@ -292,7 +292,7 @@ void gameOverSixTimeTen() {
   outputDisplay();
   delay(500);
 
-      const PROGMEM byte spriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
+      static const PROGMEM byte spriteSeven[displayNumberOfRows][displayNumberOfColumns] = {
     {0, 0, 0, 0, 0, 0},
     {3, 3, 3, 3, 3, 3},
     {3, 3, 3, 3, 3, 3},
